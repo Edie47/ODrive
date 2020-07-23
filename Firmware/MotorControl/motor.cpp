@@ -202,7 +202,7 @@ void Motor::log_timing(TimingLog_t log_idx) {
 
 float Motor::phase_current_from_adcval(uint32_t ADCValue) {
     int adcval_bal = (int)ADCValue - (1 << 11);
-    float amp_out_volt = (3.3f / (float)(1 << 12)) * (float)adcval_bal;
+    float amp_out_volt = (3.0f / (float)(1 << 12)) * (float)adcval_bal;
     float shunt_volt = amp_out_volt * phase_current_rev_gain_;
     float current = shunt_volt * hw_config_.shunt_conductance;
     return current;

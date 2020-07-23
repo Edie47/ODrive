@@ -29,7 +29,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Global constant data ------------------------------------------------------*/
 const float adc_full_scale = (float)(1 << 12);
-const float adc_ref_voltage = 3.3f;
+const float adc_ref_voltage = 3.0f;
 /* Global variables ----------------------------------------------------------*/
 
 // This value is updated by the DC-bus reading ADC.
@@ -733,7 +733,7 @@ void pwm_in_cb(int channel, uint32_t timestamp) {
 
 static void update_analog_endpoint(const struct PWMMapping_t *map, int gpio)
 {
-    float fraction = get_adc_voltage(get_gpio_port_by_pin(gpio), get_gpio_pin_by_pin(gpio)) / 3.3f;
+    float fraction = get_adc_voltage(get_gpio_port_by_pin(gpio), get_gpio_pin_by_pin(gpio)) / 3.0f;
     float value = map->min + (fraction * (map->max - map->min));
     get_endpoint(map->endpoint)->set_from_float(value);
 }

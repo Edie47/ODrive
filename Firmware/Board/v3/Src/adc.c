@@ -468,7 +468,7 @@ float read_ADC_volts(ADC_HandleTypeDef* hadc, uint8_t injected_rank) {
     } else {
         ADCValue = HAL_ADC_GetValue(hadc);
     }
-    return (3.3f/((float)(1<<12))) * ADCValue;
+    return (3.0f/((float)(1<<12))) * ADCValue;
 }
 
 /* USER CODE END 1 */
